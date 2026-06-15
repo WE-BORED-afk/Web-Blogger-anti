@@ -196,12 +196,50 @@ main {
     transform: scale(1.02);
 }
 
+.post-card.clickable {
+    cursor: pointer;
+}
+
+.post-excerpt {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .post-content {
     font-size: 1.05rem;
     color: var(--color-text);
     margin-bottom: 1.5rem;
     white-space: pre-wrap; /* Preserve line breaks */
 }
+
+.btn-back {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Prompt', inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(154, 177, 122, 0.25);
+}
+
+.btn-back:hover {
+    background: var(--color-dark);
+    transform: translateX(-4px);
+}
+
 
 /* Gallery Section in post */
 .post-gallery {
