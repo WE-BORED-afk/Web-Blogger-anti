@@ -625,15 +625,35 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         saveToLocalStorage();
         const fileContent = `const profileData = ${JSON.stringify(profile, null, 4)};\n\nconst initialPosts = ${JSON.stringify(posts, null, 4)};\n`;
-        const blob = new Blob([fileContent], { type: "application/javascript;charset=utf-8;" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.setAttribute("download", "posts.js");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        alert("บันทึกสำเร็จ! ไฟล์ 'posts.js' กำลังดาวน์โหลด...");
-        toggleEditMode(false);
+        const blob = new Blob([fileContent], { type: "application/javascript;charset=utf-8" });
+
+        if (githubConfig.token && githubConfig.username && githubConfig.repo) {
+            showLoading(true, "กำลังอัปเดตไฟล์ขึ้น GitHub...");
+            const reader = new FileReader();
+            reader.onload = async (e) => {
+                try {
+                    // This handles all Unicode (including Emojis) perfectly
+                    const base64Content = e.target.result.split(',')[1];
+                    await uploadToGithub("posts.js", base64Content, "Update posts via Online CMS");
+                    alert("บันทึกข้อมูลขึ้น GitHub สำเร็จ! รอสักครู่เว็บจะอัปเดตอัตโนมัติ");
+                } catch (err) {
+                    alert("เกิดข้อผิดพลาดในการอัปโหลด: " + err.message);
+                } finally {
+                    showLoading(false);
+                    toggleEditMode(false);
+                }
+            };
+            reader.readAsDataURL(blob);
+        } else {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute("download", "posts.js");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert("บันทึกสำเร็จ! ไฟล์ 'posts.js' กำลังดาวน์โหลด...");
+            toggleEditMode(false);
+        }
     });
 
     btnCancel.addEventListener("click", () => {
