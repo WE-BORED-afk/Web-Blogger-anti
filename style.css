@@ -374,34 +374,25 @@ body.edit-mode-active .delete-post-btn {
     display: block;
 }
 
-/* Floating Actions Bar */
+/* Header Actions Bar (Top-Right inside Header) */
 .action-bar {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(58, 71, 48, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
-    z-index: 1000;
     transition: var(--transition);
 }
 
 .action-btn {
     font-family: 'Prompt', inherit;
     border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: var(--transition);
     display: flex;
     align-items: center;
@@ -411,30 +402,36 @@ body.edit-mode-active .delete-post-btn {
 .btn-edit-mode {
     background: var(--color-primary);
     color: var(--color-white);
+    box-shadow: var(--shadow);
 }
 
 .btn-edit-mode:hover {
-    background: var(--color-secondary);
+    background: var(--color-dark);
+    transform: translateY(-1px);
 }
 
 .btn-add-post, .btn-save-export {
     display: none;
-    background: var(--color-warm);
-    color: var(--color-dark);
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow);
 }
 
 .btn-add-post:hover, .btn-save-export:hover {
-    background: var(--color-white);
+    background: var(--color-dark);
+    transform: translateY(-1px);
 }
 
 .btn-cancel {
     display: none;
-    background: rgba(255, 255, 255, 0.2);
+    background: #8A1F1F;
     color: var(--color-white);
+    box-shadow: var(--shadow);
 }
 
 .btn-cancel:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: #FF5C5C;
+    transform: translateY(-1px);
 }
 
 /* Show action buttons when Edit Mode is active */
@@ -487,9 +484,12 @@ body.edit-mode-active .btn-cancel {
         font-size: 1.4rem;
     }
     .action-bar {
-        width: 90%;
-        justify-content: space-around;
-        padding: 0.8rem;
+        position: static;
+        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
     .action-btn {
         padding: 0.5rem 1rem;

@@ -35,6 +35,24 @@
                     </div>
                 </div>
             </div>
+            <!-- Floating Actions Bar -->
+            <div class="action-bar">
+                <button id="btn-toggle-edit" class="action-btn btn-edit-mode">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                    <span>เปิดโหมดแก้ไข</span>
+                </button>
+                <button id="btn-add-post" class="action-btn btn-add-post">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>เขียนโพสต์ใหม่</span>
+                </button>
+                <button id="btn-save" class="action-btn btn-save-export">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                    <span>ส่งออกไฟล์ข้อมูล</span>
+                </button>
+                <button id="btn-cancel" class="action-btn btn-cancel">
+                    <span>ยกเลิก</span>
+                </button>
+            </div>
         </header>
 
         <!-- Main Blog Feed -->
@@ -48,27 +66,11 @@
         </section>
     </div>
 
-    <!-- Floating Actions Bar -->
-    <div class="action-bar">
-        <button id="btn-toggle-edit" class="action-btn btn-edit-mode">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-            <span>เปิดโหมดแก้ไข</span>
-        </button>
-        <button id="btn-add-post" class="action-btn btn-add-post">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            <span>เขียนโพสต์ใหม่</span>
-        </button>
-        <button id="btn-save" class="action-btn btn-save-export">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-            <span>ส่งออกไฟล์ข้อมูล</span>
-        </button>
-        <button id="btn-cancel" class="action-btn btn-cancel">
-            <span>ยกเลิก</span>
-        </button>
-    </div>
-
     <!-- Include posts data and logic script -->
     <script src="posts.js"></script>
     <script src="app.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
 </body>
 </html>
