@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-15T16:15:00Z",
+  "title": "Design System: Web Blogger - บล็อกส่วนตัวของฉัน",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Sage Green",
+        "canonical": "oklch(72.77% 0.084 120.35)",
+        "tonalRamp": ["#3A4730", "#5E6955", "#7C8C6C", "#9AB17A", "#B5C79B", "#C3CC9B", "#E4DFB5", "#FBE8CE"]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Light Sage",
+        "canonical": "oklch(80.59% 0.063 115.11)",
+        "tonalRamp": ["#3A4730", "#5E6955", "#7C8C6C", "#9AB17A", "#B5C79B", "#C3CC9B", "#E4DFB5", "#FBE8CE"]
+      },
+      "beige": {
+        "role": "neutral",
+        "displayName": "Cream Beige",
+        "canonical": "oklch(88.35% 0.045 95.8)",
+        "tonalRamp": ["#E4DFB5", "#EBE6C2", "#F2EDCE", "#F9F4DA", "#FBF7E4", "#FDFBEF", "#FEFEF9", "#FFFFFF"]
+      },
+      "warm": {
+        "role": "accent",
+        "displayName": "Warm Sand",
+        "canonical": "oklch(93.18% 0.04 79.23)",
+        "tonalRamp": ["#FBE8CE", "#FCEDD8", "#FDF1E2", "#FDF5EC", "#FEF9F5", "#FFFDFB", "#FFFFFF", "#FFFFFF"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Title (H1)",
+        "purpose": "ใช้สำหรับหัวข้อบทความหลักในหน้าเปิดอ่าน เพื่อความเด่นชัดและมีเอกลักษณ์สะดุดตา"
+      },
+      "body": {
+        "displayName": "Body Text",
+        "purpose": "เนื้อหาบทความหลักที่ผู้ใช้อ่าน เพื่อให้อ่านง่าย คลายสายตา"
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-low",
+        "value": "0 8px 32px 0 rgba(58, 71, 48, 0.08)",
+        "purpose": "เงารวมใต้แผงควบคุม การ์ดบล็อก และปุ่มต่างๆ"
+      },
+      {
+        "name": "interactive-rise",
+        "value": "0 16px 45px 0 rgba(58, 71, 48, 0.12)",
+        "purpose": "เงาเมื่อเมาส์ชี้การ์ดเพื่อยกการ์ดขึ้นเล็กน้อย"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "ความเร็วและจังหวะแอนิเมชันสำหรับสลับหน้าและเปลี่ยนสถานะปุ่ม"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "ปุ่มดำเนินการหลัก สีเขียวเสจ ขอบมนแคปซูล",
+      "html": "<button class=\"ds-btn-primary\">ยืนยันข้อมูล</button>",
+      "css": ".ds-btn-primary { font-family: 'Prompt', sans-serif; background-color: #9AB17A; color: #FFFFFF; border: none; padding: 0.6rem 1.2rem; border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; } .ds-btn-primary:hover { background-color: #3A4730; transform: translateY(-1px); }"
+    },
+    {
+      "name": "Blog Card",
+      "kind": "card",
+      "refersTo": "card-post",
+      "description": "การ์ดแสดงเนื้อหาบทความ ผิวกระจกฝ้าทรายประกายทองขอบแก้ว",
+      "html": "<article class=\"ds-post-card\"><h2 class=\"ds-post-title\">หัวข้อบทความ</h2><p class=\"ds-post-excerpt\">เนื้อความเกริ่นนำจำลองของบทความเพื่อแสดงสไตล์การจัดลำดับตัวอักษร...</p></article>",
+      "css": ".ds-post-card { font-family: 'Prompt', sans-serif; background: rgba(251, 232, 206, 0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 16px; padding: 2.5rem; box-shadow: 0 8px 32px 0 rgba(58, 71, 48, 0.08); } .ds-post-title { font-size: 1.8rem; font-weight: 700; color: #3A4730; margin-bottom: 1rem; } .ds-post-excerpt { font-size: 1.05rem; color: #2D3528; line-height: 1.7; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Minimalist Journal",
+    "overview": "ระบบการออกแบบนี้เน้นความเป็นระเบียบ ความสะอาดตา และความประณีตของการจัดวางตัวพิมพ์และการเว้นระยะห่าง เพื่อให้เว็บบล็อกส่วนตัวเป็นเหมือนสมุดบันทึกที่สวยงาม อ่านสบายตา และกลมกลืนกับธรรมชาติ โดยใช้สีโทนเขียวเสจผ่อนคลายตัดกับเนื้อครีมทรายอุ่น",
+    "keyCharacteristics": [
+      "การใช้สีพาสเทลเอิร์ธโทนเพื่อให้ความรู้สึกผ่อนคลายและเข้ากับธรรมชาติ",
+      "การเล่นระดับมิติด้วยเอฟเฟกต์กระจกฝ้า (Glassmorphism) บนการ์ดเนื้อหา",
+      "การจัดลำดับความหนาบางของตัวอักษรไทย-อังกฤษอย่างประณีต",
+      "การซ่อนเครื่องมือควบคุมผู้เขียนออกจากการมองเห็นของบุคคลทั่วไปโดยเด็ดขาด"
+    ],
+    "rules": [
+      {
+        "name": "The Restrained Palette Rule",
+        "body": "ห้ามใช้สีสันภายนอกอื่นๆ นอกเหนือจากชุดสีที่กำหนดไว้นี้เด็ดขาด เพื่อคงความสงบนุ่มนวลของแบรนด์ส่วนบุคคลของบล็อกนี้",
+        "section": "colors"
+      },
+      {
+        "name": "The Text-Wrap Rule",
+        "body": "ต้องใช้ text-wrap: balance เสมอในส่วนหัวข้อโพสต์หลักเพื่อกระจายน้ำหนักคำภาษาไทยไม่ให้ตกหล่นทีละพยางค์ และใช้ text-wrap: pretty ในพารากราฟเนื้อหา",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "องค์ประกอบหลักของเว็บบล็อกต้องเรียบราบขอบบางเมื่อจอดนิ่ง และจะนูนลอยเล็กน้อยพร้อมแอนิเมชันก็ต่อเมื่อมีปฏิสัมพันธ์จากผู้ใช้เท่านั้น",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do ใช้รหัสสีคู่ตรงตามจานสี \"Sage & Sand\" และห้ามละเลยความคมชัดของสีตัวอักษรกับพื้นหลัง (ความคมชัดขั้นต่ำต้อง ≥ 4.5:1)",
+      "Do ให้ความสำคัญกับการซ่อนพาเนลจัดการรูปภาพและการเพิ่มรูปภาพในหน้าแก้ไขไม่ให้ออกมาโผล่ที่หน้าแสดงผลปกติ (หน้า blog)",
+      "Do ใช้การเฟดแอนิเมชันที่ราบรื่น (Ease-out-quart) ในการเปลี่ยนหน้าอ่านรายเรื่อง"
+    ],
+    "donts": [
+      "Don't ใช้เส้นขอบสีหนาๆ กั้นเฉพาะขอบด้านข้างการ์ด (Side-stripe borders)",
+      "Don't ปล่อยให้ตัวหนังสือเป็นสีเทาจาง (Low contrast gray) ที่จมไปกับพื้นหลังเบจ",
+      "Don't ทำระบบไลก์หรือช่องคอมเมนต์ที่เป็นการชักชวนสังคมออนไลน์ (No community features)",
+      "Don't ใส่แอนิเมชันขยายขนาดภาพโปรไฟล์หรือภาพหน้าปกตอนเอาเมาส์ชี้โดยตรง",
+      "Don't นำฟีเจอร์สลับโหมดมืด (Dark Mode Toggle) กลับเข้ามาใช้งาน เพื่อควบคุมแบรนด์ให้เน้นโทนอบอุ่นตามความประสงค์หลัก"
+    ]
+  }
+}
