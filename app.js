@@ -22,7 +22,36 @@ const storage = getStorage(app);
 
 // ========== App State ==========
 let posts = [];
-let profile = { name: "Advice", bio: "", avatar: "assets/profile.png" };
+let profile = { name: "Advice", bio: "นักเขียนผู้หลงใหลในความเรียบง่าย การออกแบบเว็บ และเทคโนโลยีออร์แกนิก ยินดีต้อนรับสู่พื้นที่แบ่งปันความคิดและความเงียบสงบของฉัน", avatar: "assets/profile.png" };
+
+// Default data for first-time seeding
+const defaultProfile = { ...profile };
+const defaultPosts = [
+    {
+        id: "1",
+        title: "ก้าวแรกของการออกแบบเว็บบล็อกแบบ Minimalist",
+        date: "15 มิถุนายน 2026",
+        coverImage: "assets/post1.png",
+        blocks: [
+            { type: "text", content: "การสร้างเว็บบล็อกที่ดีไม่จำเป็นต้องมีความซับซ้อน หรือเต็มไปด้วยฟีเจอร์ที่เราไม่ได้ใช้งาน หัวใจสำคัญคือเนื้อหาและการจัดวางที่ทำให้ผู้อ่านรู้สึกสบายตา" },
+            { type: "text", content: "ในโปรเจกต์นี้ เราเลือกใช้สีโทนธรรมชาติ (Organic Sage and Warm Sand) ที่ให้ความรู้สึกอบอุ่น สบายตา และชวนผ่อนคลาย การจำกัดชุดสีเพียงไม่กี่สีช่วยสร้างอัตลักษณ์ที่ชัดเจนและจดจำง่ายให้กับแบรนด์ส่วนบุคคลของเรา" },
+            { type: "text", content: "การเขียนเว็บบล็อกในรูปแบบหน้าเดียว (Single Page Feed) ช่วยให้ผู้อ่านเข้าถึงเนื้อหาทั้งหมดได้ทันทีโดยไม่ต้องคลิกเปิดหลายหน้า ซึ่งเหมาะกับผู้ที่ต้องการนำเสนอความคิดในรูปแบบที่กระชับและลื่นไหลที่สุด" }
+        ],
+        sortOrder: 2
+    },
+    {
+        id: "2",
+        title: "จัดสรรชีวิตผ่านความเรียบง่ายและธรรมชาติ",
+        date: "14 มิถุนายน 2026",
+        coverImage: "assets/post2.png",
+        blocks: [
+            { type: "text", content: "ในโลกที่ขับเคลื่อนด้วยความเร็ว การได้หยุดและปล่อยให้ชีวิตช้าลงบ้างคือสิ่งจำเป็น การนำธรรมชาติเข้ามาเป็นส่วนหนึ่งของพื้นที่ทำงานและวิถีชีวิตช่วยเพิ่มความคิดสร้างสรรค์อย่างเหลือเชื่อ" },
+            { type: "text", content: "การทดลองปรับแต่งพื้นที่รอบตัวให้อยู่ในโทนสีธรรมชาติ เช่น การวางกระถางต้นไม้เล็กๆ หรือภาพวาดใบไม้สีเสจ (Sage green) จะช่วยกระตุ้นความสงบในจิตใจและลดความตึงเครียดสะสมจากการทำงานหน้าจอเป็นเวลานาน" },
+            { type: "text", content: "นี่คือเหตุผลที่ธีมของบล็อกนี้ถูกออกแบบขึ้นมาภายใต้แนวคิดของความกลมกลืนกับธรรมชาติ เพื่อให้พื้นที่เขียนบล็อกนี้เป็นเสมือนมุมสงบเล็กๆ ของตัวเราเองที่ทุกคนสามารถเข้ามาอ่านได้อย่างสบายใจ" }
+        ],
+        sortOrder: 1
+    }
+];
 let isEditMode = false;
 let isLoggedIn = false;
 let currentActivePostId = null;
@@ -705,10 +734,28 @@ btnCancel.addEventListener("click", () => {
     }
 });
 
+// ========== Seed Initial Data ==========
+async function seedInitialData() {
+    // Check if Firestore has any posts
+    const postsSnap = await getDocs(collection(db, "posts"));
+    if (postsSnap.empty) {
+        console.log("Firestore is empty, seeding default data...");
+        // Seed profile
+        await setDoc(doc(db, "settings", "profile"), defaultProfile);
+        // Seed posts
+        for (const post of defaultPosts) {
+            await setDoc(doc(db, "posts", post.id), post);
+        }
+        profile = { ...defaultProfile };
+        console.log("Default data seeded successfully!");
+    }
+}
+
 // ========== Init ==========
 async function initApp() {
     showLoading(true, "กำลังโหลดข้อมูล...");
     try {
+        await seedInitialData();
         await loadProfileFromFirestore();
         renderProfile();
         listenToPostsRealtime();
