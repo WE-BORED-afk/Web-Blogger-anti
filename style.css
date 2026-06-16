@@ -1006,9 +1006,9 @@ body.edit-mode-active .action-bar {
     color: #8b3a3a;
 }
 
-/* Admin-only elements (hidden by default, shown when logged in via JS) */
-.admin-only {
-    display: none;
+/* Admin-only elements (hidden by default, shown when logged in via body.logged-in) */
+body:not(.logged-in) .admin-only {
+    display: none !important;
 }
 
 .btn-upload-avatar, .btn-upload-cover {
